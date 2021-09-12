@@ -17,6 +17,7 @@ export class App extends Component {
     super(props);
     this.state = {
       cityName: "",
+      cityL: '',
       type: "",
       latitude: '',
       longitude: '',
@@ -41,6 +42,7 @@ export class App extends Component {
       let resData = item.data[0]
       this.setState({
         cityName: resData.display_name,
+        cityL: resData.display_name,
         longitude: resData.lon,
         latitude: resData.lat,
         type: resData.type,
@@ -56,6 +58,7 @@ export class App extends Component {
         {
           this.state.rendering &&
           <Display cityName={this.state.cityName}
+          cityL={this.state.cityL}
             type={this.state.type}
             latitude={this.state.latitude}
             longitude={this.state.longitude}

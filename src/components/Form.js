@@ -3,7 +3,6 @@ import {
     InputGroup,
     FormControl,
     Button,
-    Row,
     Container,
     Col
 } from 'react-bootstrap';
@@ -12,8 +11,6 @@ export class Form extends Component {
         return (
             <div>
                 <Container>
-                    <Row>
-                        <Col></Col>
                         <Col>
                             <form
                                 onSubmit={this.props.handleSubmit}
@@ -35,8 +32,6 @@ export class Form extends Component {
                                 </InputGroup>
                             </form>
                         </Col>
-                        <Col></Col>
-                    </Row>
                 </Container>
             </div>
         )

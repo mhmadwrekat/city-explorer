@@ -12,6 +12,9 @@ code {
     monospace;
 }
 #card {
-  padding-left : 35% ;
+ margin : 50px ;
+}
+.as{
+  width : 100px ;
 }
 
