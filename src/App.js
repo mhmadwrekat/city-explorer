@@ -64,7 +64,6 @@ export class App extends Component {
         {
           this.state.rendering &&
           <Footer />
-
         }
       </>
     )

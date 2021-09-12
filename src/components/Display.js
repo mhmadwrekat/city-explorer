@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {
     Card,
-    Button,
-    Row,
-    Container,
-    Col
 } from 'react-bootstrap';
 
 export class Display extends Component {
