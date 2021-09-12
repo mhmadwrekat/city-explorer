@@ -25,10 +25,3 @@ export class Display extends Component {
 }
 
 export default Display
-/*
-31.9515694/35.9239625
-
-https://www.google.com/maps/place/
-https://www.google.com/maps/place/
-
-*/
