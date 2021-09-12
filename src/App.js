@@ -6,12 +6,10 @@ import Footer from './components/Footer';
 import Display from './components/Display';
 import Form from './components/Form';
 import Axios from 'axios';
-/*
-display_name
-latitude
-longitude
-place_id
-*/
+import {
+  Alert,
+} from 'react-bootstrap';
+
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -46,22 +44,39 @@ export class App extends Component {
         longitude: resData.lon,
         latitude: resData.lat,
         type: resData.type,
+        mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${resData.lat},${resData.lon}&zoom=7&size=400x600&format=png.`,
         rendering: true
       })
     })
+      .catch(item => {
+        this.setState({
+          error: item.message
+        });
+      })
   }
   render() {
     return (
       <>
         <Header />
         <Form handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} />
+        {this.state.error &&
+          <Alert className="error" variant="danger">
+            <Alert.Heading>Oh snap ! You got an error !</Alert.Heading>
+            <p>
+              <b>
+                You Enter a Wrong city name
+              </b>
+            </p>
+          </Alert>
+        }
         {
           this.state.rendering &&
           <Display cityName={this.state.cityName}
-          cityL={this.state.cityL}
+            cityL={this.state.cityL}
             type={this.state.type}
             latitude={this.state.latitude}
             longitude={this.state.longitude}
+            mapUrl={this.state.mapUrl}
           />
         }
         {
