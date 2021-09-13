@@ -3,7 +3,6 @@ import {
     Navbar,
     Container
 } from 'react-bootstrap';
-
 export class Header extends Component {
     render() {
         return (

@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-import Display from './components/Display';
 import Form from './components/Form';
+import Display from './components/Display';
+import Weather from './components/Weather';
+
 import Axios from 'axios';
 import {
   Alert,
 } from 'react-bootstrap';
-
+/////////////////////////////
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,7 @@ export class App extends Component {
       type: "",
       latitude: '',
       longitude: '',
+      weather: [],
       rendering: false
     }
   }
@@ -47,12 +49,19 @@ export class App extends Component {
         mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${resData.lat},${resData.lon}&zoom=7&size=400x600&format=png.`,
         rendering: true
       })
-    })
-      .catch(item => {
-        this.setState({
-          error: item.message
+    }).then(() => {
+      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL}?lon=${this.state.longitude}&lat=${this.state.latitude}`)
+        .then(res => {
+          console.log(res.data);
+          this.setState({
+            weather: res.data
+          })
         });
-      })
+    }).catch(item => {
+      this.setState({
+        error: item.message
+      });
+    })
   }
   render() {
     return (
@@ -69,6 +78,9 @@ export class App extends Component {
             </p>
           </Alert>
         }
+        <Weather
+          weather={this.state.weather}
+        />
         {
           this.state.rendering &&
           <Display cityName={this.state.cityName}
@@ -87,5 +99,4 @@ export class App extends Component {
     )
   }
 }
-
 export default App

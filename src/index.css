@@ -11,10 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#card {
- margin : 50px ;
+.asa{
+  margin : 100px ;
 }
+
 .as{
   width : 100px ;
 }
-
+.section{
+margin-left : 200px ;
+}
