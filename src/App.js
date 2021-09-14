@@ -50,7 +50,7 @@ export class App extends Component {
         rendering: true
       })
     }).then(() => {
-      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather-data?lon=${this.state.longitude}&lat=${this.state.latitude}`)
+      Axios.get(`https://city-explorers-api.herokuapp.com/weather-data?lon=${this.state.longitude}&lat=${this.state.latitude}`)
         .then(res => {
           console.log(res.data);
           this.setState({
@@ -100,3 +100,4 @@ export class App extends Component {
   }
 }
 export default App
+//REACT_APP_BACKEND_URL='Your Backend Site'
