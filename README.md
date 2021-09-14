@@ -1,6 +1,5 @@
 # City Explorer
-REACT_APP_LOCATIONIQ_API_KEY=pk.f908b679c73286d8616c2f6e60769c0b
-REACT_APP_BACKEND_URL=city-explorers-api.herokuapp.com/weather
+
 ### ***[Netlify Live URL ......](https://cityexplorers.netlify.app/)***
 
 ---
@@ -80,5 +79,16 @@ Start time : 10:20 pm .
 Finish time: 11:20 pm . 
 
 Actual time needed to complete: 1 Hour .
+
+---
+Name of feature: **5** Movie .
+
+Estimate of time needed to complete: 5 Hour .
+
+Start time : 4:20 pm .
+
+Finish time: 9:20 pm . 
+
+Actual time needed to complete: 5 Hour .
 
 ---
