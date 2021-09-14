@@ -50,7 +50,7 @@ export class App extends Component {
         rendering: true
       })
     }).then(() => {
-      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL}?lon=${this.state.longitude}&lat=${this.state.latitude}`)
+      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather-data?lon=${this.state.longitude}&lat=${this.state.latitude}`)
         .then(res => {
           console.log(res.data);
           this.setState({
