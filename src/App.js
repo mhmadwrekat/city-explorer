@@ -52,7 +52,7 @@ export class App extends Component {
         rendering: true
       })//////////////////////////WEATHER
     }).then(() => {
-      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL_WEATHER}?lat=${this.state.latitude}&lon=${this.state.longitude}`)
+      Axios.get(`https://${process.env.REACT_APP_BACKEND_URL_WEATHER}?lat=${this.state.latitude}&lon=${this.state.longitude}`)
         .then(res => {
           console.log(res.data);
           console.log(this.state.inter);
@@ -61,7 +61,7 @@ export class App extends Component {
           })
         });//////////////////////////MOVIE///http://localhost:8025/movies?query=amman
     }).then(() => {
-      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL_MOVIES}?query=${this.state.inter}`)
+      Axios.get(`https://${process.env.REACT_APP_BACKEND_URL_MOVIES}?query=${this.state.inter}`)
         .then(res => {
           console.log(res.data);
           this.setState({
