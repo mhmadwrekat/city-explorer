@@ -1,5 +1,6 @@
 # City Explorer
-
+REACT_APP_LOCATIONIQ_API_KEY=pk.f908b679c73286d8616c2f6e60769c0b
+REACT_APP_BACKEND_URL=city-explorers-api.herokuapp.com/weather
 ### ***[Netlify Live URL ......](https://cityexplorers.netlify.app/)***
 
 ---

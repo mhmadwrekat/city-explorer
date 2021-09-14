@@ -6,7 +6,8 @@ export class Display extends Component {
     render() {
         return (
             <Card className="text-center">
-                <Card.Body>
+                 <h1>Map :</h1>
+                 <Card.Body>
                     <Card.Title>{this.props.cityL}</Card.Title>
                     <Card.Text>
                         <Image src={this.props.mapUrl} alt="map1" />

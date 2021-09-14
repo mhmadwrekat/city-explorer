@@ -5,25 +5,23 @@ import {
 export class Weather extends Component {
     render() {
         return (
-            <section class='section'>
-                <br></br>
+
                 <div className='row'>
+                    <br></br>
+                    <h1>Weather :</h1>
                     {this.props.weather.map(item => {
                         return <>
-                            <Card style={{ width: '18rem' }}>
+                            <Card style={{ width: '16rem' }}>
                                 <Card.Body>
                                     <Card.Title>{item.date}</Card.Title>
                                     <b>⛅ {item.description}</b>
                                 </Card.Body>
-                                <Card.Footer className="text-muted">
-                                    {item.name}    </Card.Footer>
                             </Card>
                         </>
                     })
                     }
-                    <pre></pre>
+                    <br></br><pre></pre>
                 </div>
-            </section>
         )
     }
 }

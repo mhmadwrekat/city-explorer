@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Form from './components/Form';
 import Display from './components/Display';
 import Weather from './components/Weather';
+import Movie from './components/Movie';
 
 import Axios from 'axios';
 import {
@@ -21,23 +22,24 @@ export class App extends Component {
       latitude: '',
       longitude: '',
       weather: [],
+      movie: [],
       rendering: false
     }
   }
   handleLocation = (event) => {
     let city = event.target.value;
+    let intered = event.target.value;
     this.setState({
-      cityName: city
+      cityName: city,
+      inter : intered
     })
   }
   handleSubmit = (event) => {
     event.preventDefault();
-
     let config = {
       method: "GET",
       baseURL: `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}`
     }
-
     Axios(config).then(item => {
       let resData = item.data[0]
       this.setState({
@@ -48,13 +50,22 @@ export class App extends Component {
         type: resData.type,
         mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${resData.lat},${resData.lon}&zoom=7&size=400x600&format=png.`,
         rendering: true
-      })
+      })//////////////////////////WEATHER
     }).then(() => {
-      Axios.get(`https://city-explorers-api.herokuapp.com/weather-data?lon=${this.state.longitude}&lat=${this.state.latitude}`)
+      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL_WEATHER}?lat=${this.state.latitude}&lon=${this.state.longitude}`)
+        .then(res => {
+          console.log(res.data);
+          console.log(this.state.inter);
+          this.setState({
+            weather: res.data
+          })
+        });//////////////////////////MOVIE///http://localhost:8025/movies?query=amman
+    }).then(() => {
+      Axios.get(`http://${process.env.REACT_APP_BACKEND_URL_MOVIES}?query=${this.state.inter}`)
         .then(res => {
           console.log(res.data);
           this.setState({
-            weather: res.data
+            movie: res.data
           })
         });
     }).catch(item => {
@@ -78,9 +89,6 @@ export class App extends Component {
             </p>
           </Alert>
         }
-        <Weather
-          weather={this.state.weather}
-        />
         {
           this.state.rendering &&
           <Display cityName={this.state.cityName}
@@ -91,6 +99,17 @@ export class App extends Component {
             mapUrl={this.state.mapUrl}
           />
         }
+        {this.state.rendering &&
+                 <Weather
+          weather={this.state.weather}
+        />
+  }
+        {
+          this.state.rendering &&
+        <Movie
+          movie={this.state.movie}
+        />
+  }
         {
           this.state.rendering &&
           <Footer />
