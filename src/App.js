@@ -73,7 +73,7 @@ export class App extends Component {
             <Alert.Heading>Oh snap ! You got an error !</Alert.Heading>
             <p>
               <b>
-                You Enter a Wrong city name
+                You Enter a Wrong city name!
               </b>
             </p>
           </Alert>
