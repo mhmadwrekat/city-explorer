@@ -1,27 +1,21 @@
 import React, { Component } from 'react'
-import {
-    Card,
-} from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 export class Weather extends Component {
     render() {
         return (
-
-                <div className='row'>
-                    <br></br>
-                    <h1>Weather :</h1>
-                    {this.props.weather.map(item => {
-                        return <>
-                            <Card style={{ width: '16rem' }}>
-                                <Card.Body>
-                                    <Card.Title>{item.date}</Card.Title>
-                                    <b>⛅ {item.description}</b>
-                                </Card.Body>
-                            </Card>
-                        </>
-                    })
-                    }
-                    <br></br><pre></pre>
-                </div>
+            <div className='row'>
+                <h4 className="text-center" id='font'><b>Weather Forecast</b></h4><hr></hr>
+                {this.props.weather.map(item => {
+                    return <>
+                        <Card className="text-center" style={{ width: '20rem' }}>
+                            <Card.Header>{item.date}</Card.Header>
+                            <Card.Body id='font'>
+                                <p><b>{item.max_temp} °C ⛅ {item.description}</b></p>
+                            </Card.Body>
+                        </Card>
+                    </>
+                })}
+            </div>
         )
     }
 }

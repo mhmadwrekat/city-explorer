@@ -92,3 +92,14 @@ Finish time: 9:20 pm .
 Actual time needed to complete: 5 Hour .
 
 ---
+Name of feature: **6** Refactoring into Modules .
+
+Estimate of time needed to complete: 2 Hour .
+
+Start time : 3:00 pm .
+
+Finish time: 5:00 pm . 
+
+Actual time needed to complete: 2:00 Hour .
+
+---

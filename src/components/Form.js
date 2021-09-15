@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
-import {
-    InputGroup,
-    FormControl,
-    Button,
-    Container,
-    Col
-} from 'react-bootstrap';
+import { InputGroup, FormControl, Button, Container, Col } from 'react-bootstrap';
 export class Form extends Component {
     render() {
         return (
             <div>
                 <Container>
                     <Col>
-                        <form
-                            onSubmit={this.props.handleSubmit}
-                        >
+                        <form onSubmit={this.props.handleSubmit}>
                             <InputGroup className="mb-3">
                                 <FormControl
                                     aria-label="Example text with button addon"
