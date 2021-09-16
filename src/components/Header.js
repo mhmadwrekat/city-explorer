@@ -6,7 +6,7 @@ export class Header extends Component {
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Container>
-                        <Navbar.Brand href="#home">City Explorer</Navbar.Brand>
+                        <Navbar.Brand href="#home" id='fontt'>City Explorer</Navbar.Brand>
                     </Container>
                 </Navbar>
                 <br></br>

@@ -53,10 +53,11 @@ export class App extends Component {
     }).then(() => {
       Axios.get(`https://${process.env.REACT_APP_BACKEND_URL_WEATHER}?lat=${this.state.latitude}&lon=${this.state.longitude}`)
         .then(res => {
-          console.log(res.data);
-          console.log(this.state.inter);
+          console.log('RES11 :', res.data.cache);
+          console.log('RES22 :', res.data.cache.data);
+          console.log('INTER : ', this.state.inter);
           this.setState({
-            weather: res.data
+            weather: res.data.cache.data
           })
         });
     }).then(() => {
@@ -64,7 +65,7 @@ export class App extends Component {
         .then(res => {
           console.log(res.data);
           this.setState({
-            movie: res.data
+            movie: res.data.cache.data
           })
         });
     }).catch(item => {
@@ -72,6 +73,7 @@ export class App extends Component {
         error: item.message
       });
     })
+    console.log('WEATHER : ', this.state.weather);
   }
   ///////////// RENDER ////////////////
   render() {

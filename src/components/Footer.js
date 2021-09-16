@@ -12,7 +12,7 @@ class Footer extends Component {
                     color: "white",
                     padding: "10px"
                 }}>
-                    <h6>All Reserved CopyRight . © Mhmad-Wrekat</h6>
+                    <h6 id='fontt'>All Reserved CopyRight . © Mhmad-Wrekat</h6>
                 </div>
             </>
         )

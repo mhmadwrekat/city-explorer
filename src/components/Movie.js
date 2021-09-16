@@ -1,27 +1,40 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap';
+import { Table, Container, Col, Row } from 'react-bootstrap';
 export class Movie extends Component {
     render() {
         return (
-            <div className='row'>
+            <>
                 <h3 className="text-center" id='font'><b>Suggested Movies</b></h3><hr></hr>
-                {this.props.movie.map(item => {
-                    return <><br></br>
-                        <Card className="text-center"
-                            bg='light'
-                            text={'dark' === 'light' ? 'dark' : 'black'}
-                            style={{ width: '17rem' }}
-                        >
-                            <Card.Header>📅 {item.release}</Card.Header>
-                            <Card.Body>
-                                <Card.Title id='font'>{item.title} </Card.Title>
-                                <Card.Text>⭐ {item.vote}</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </>
-                })}
-                <br></br>
-            </div>
+                <Container>
+                    <Row>
+                        <Col xs={8} md={0}>
+                        </Col>
+                        <Col xs={8} md={12}>
+                            <Table striped bordered hover variant='dark' id='fontt' className="text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Name Movie</th>
+                                        <th>📅 Release</th>
+                                        <th>⭐ Vote</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.props.movie.map(item => {
+                                        return <>
+                                            <tr>
+                                                <td>{item.title}</td>
+                                                <td>{item.release}</td>
+                                                <td>{item.vote}</td>
+                                            </tr>
+                                        </>
+                                    })}
+                                    <br></br>
+                                </tbody>
+                            </Table>
+                        </Col>
+                    </Row>
+                </Container>
+            </>
         )
     }
 }
